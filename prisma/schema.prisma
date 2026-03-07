@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  // On enlève la ligne url ici, car Prisma 7 l'interdit dans le schéma
+}
+
+model Candidate {
+  id           String   @id @default(uuid())
+  nom          String
+  prenom       String
+  adresse      String
+  age          Int
+  niveauEtude  String
+  createdAt    DateTime @default(now())
+}
